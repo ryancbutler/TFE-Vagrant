@@ -68,7 +68,8 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
      apt-get update
-     apt-get upgrade -y
+     #Allows Grub update to continue noninteractive
+     DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
      curl https://install.terraform.io/ptfe/stable | sudo bash
   SHELL
 end
