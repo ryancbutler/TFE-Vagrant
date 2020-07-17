@@ -16,6 +16,7 @@ Uses the following local ports:
  - Once completed check `http://<this_server_address>:8800` to continue
 
 # To Run Install Automatically
+Installs TFE with a mounted disk configuration fully automated
  - Copy TFE license to **config** directory
  - Rename license to **license.rli**
  - Go to directory and launch `vagrant up`

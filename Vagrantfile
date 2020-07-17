@@ -34,8 +34,6 @@ Vagrant.configure("2") do |config|
         mkdir /tfe/app
         mkdir /tfe/snapshots
         mkdir /tfe/statsd
-        #echo "Creating cert"
-        #openssl req -x509 -newkey rsa:4096 -new -nodes -keyout server.key -out server.crt -days 365 -subj "/C=US/ST=Wisconsin/L=Milwaukee/O=Company Name/OU=Org/CN=localhost" -passout pass:
         echo "Copying replicated conf"
         cp /vagrant/config/replicated.conf /etc/replicated.conf
         curl -s https://install.terraform.io/ptfe/stable | sudo bash
