@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     #apt-get update
     #Allows Grub update to continue noninteractive
     #DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
-    if [[ -d "/vagrant/config" ]]
+    if [[ -f "/vagrant/config/license.rli" ]]
       then
         echo "Config folder found.  Automating Install"
         echo "Creating App Dirs"
@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
         TOKEN=$(replicated admin --tty=0 retrieve-iact)
         echo "Install complete..."
         echo "Dashboard available: https://127.0.0.1:8800"
-        echo "TFE Login:  https://127.0.0.1/admin/initial-admin-user?token=${TOKEN}" 
+        echo "TFE Login:  https://127.0.0.1/admin/account/new?token=${TOKEN}" 
       else
         echo "Performing manual install"  
         curl -s https://install.terraform.io/ptfe/stable | sudo bash

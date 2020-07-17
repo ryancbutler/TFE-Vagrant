@@ -10,10 +10,18 @@ Uses the following local ports:
  - 443
  - 8800
 
-# To Run
+# To Run Install Manually
  - Go to directory and launch `vagrant up`
  - Instance will upgrade and install TFE
  - Once completed check `http://<this_server_address>:8800` to continue
+
+# To Run Install Automatically
+ - Copy TFE license to **config** directory
+ - Rename license to **license.rli**
+ - Go to directory and launch `vagrant up`
+ - Instance will upgrade and install TFE
+ - Once completed check `http://<this_server_address>:8800` to continue
+ - Will also output initial user creation URL
 
 # HTTPS Tunnel with NGROK
 Allows external internet access to a local instance for version control system (VCS) integration. Requires a token from https://dashboard.ngrok.com/ (FREE ACCOUNT!!)
