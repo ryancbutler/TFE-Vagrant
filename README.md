@@ -24,6 +24,8 @@ Installs TFE with a mounted disk configuration fully automated
  - Once completed check `http://<this_server_address>:8800` to continue
  - Will also output initial user creation URL
 
+ Note: Console password is located in **config\replicated.conf**
+
 # HTTPS Tunnel with NGROK
 Allows external internet access to a local instance for version control system (VCS) integration. Requires a token from https://dashboard.ngrok.com/ (FREE ACCOUNT!!)
  
