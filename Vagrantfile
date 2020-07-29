@@ -28,14 +28,14 @@ Vagrant.configure("2") do |config|
     #DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
     if [[ -f "/vagrant/config/license.rli" ]]
       then
-        echo "Config folder found.  Automating Install"
+        echo "License found.  Automating Install"
         echo "Creating App Dir"
         mkdir /tfe/app -p
         mkdir /tfe/snapshots -p
         echo "Copying replicated conf"
         cp /vagrant/config/replicated.conf /etc/replicated.conf
-        curl -s https://install.terraform.io/ptfe/stable | sudo bash
         apt-get update
+        curl -s https://install.terraform.io/ptfe/stable | sudo bash
         apt-get install jq -y
         while ! curl -ksfS --connect-timeout 5 https://127.0.0.1/_health_check; do
           echo "Waiting for TFE to come up..."
