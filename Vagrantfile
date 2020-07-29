@@ -21,8 +21,6 @@ Vagrant.configure("2") do |config|
       vb.vmx["numvcpus"] = "2"
   end
 
-  config.vm.synced_folder "snapshots/", "/snapshots", create: true
-
   #Install Terraform Enterprise
   config.vm.provision "shell", run: "once", inline: <<-SHELL
     #apt-get update
@@ -33,6 +31,7 @@ Vagrant.configure("2") do |config|
         echo "Config folder found.  Automating Install"
         echo "Creating App Dir"
         mkdir /tfe/app -p
+        mkdir /tfe/snapshots -p
         echo "Copying replicated conf"
         cp /vagrant/config/replicated.conf /etc/replicated.conf
         curl -s https://install.terraform.io/ptfe/stable | sudo bash
